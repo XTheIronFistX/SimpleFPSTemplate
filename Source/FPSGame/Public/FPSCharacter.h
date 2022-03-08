@@ -55,6 +55,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
 	UAnimSequence* FireAnimation;
 
+	UPROPERTY(BlueprintReadOnly, Category = "Gameplay")
+	bool bIsCarryingObjective;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
 	UParticleSystem* MuzzleFlash;
 
