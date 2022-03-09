@@ -28,6 +28,9 @@ AFPSProjectile::AFPSProjectile()
 	ProjectileMovement->MaxSpeed = 3000.f;
 	ProjectileMovement->bRotationFollowsVelocity = true;
 	ProjectileMovement->bShouldBounce = true;
+
+	SetReplicates(true);
+	SetReplicateMovement(true);
 }
 
 
@@ -78,6 +81,13 @@ void AFPSProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPr
 
 			MatInst->SetVectorParameterValue("Color", NewColor);
 		}
+
+		MakeNoise(1.0f, GetInstigator());
+
+		Explode();
+	}
+	else {
+		MakeNoise(1.0f, GetInstigator());
 
 		Explode();
 	}
